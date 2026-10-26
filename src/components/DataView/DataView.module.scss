@@ -1,0 +1,111 @@
+@use '../../styles/mixins' as *;
+
+/* ---------- Table ---------- */
+.scroller {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  &:focus-visible { outline-offset: -2px; }
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--text-md);
+
+  caption { @include visually-hidden; }
+
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface-sunken);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  tbody tr { transition: background-color var(--duration-fast) var(--ease-out); }
+  tbody tr:hover { background: var(--color-surface-hover); }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  th:first-child, td:first-child { padding-left: var(--space-5); }
+  th:last-child, td:last-child { padding-right: var(--space-5); }
+}
+
+.alignEnd { text-align: right !important; }
+.nowrap { white-space: nowrap; }
+
+/* Accent bar on the first cell — mirrors the status colour */
+.accent td:first-child { box-shadow: inset 3px 0 0 var(--row-accent); }
+
+/* ---------- Cards ---------- */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+
+  @include tablet-up { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: var(--space-5); }
+  @include desktop-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--row-accent, var(--color-border));
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  min-width: 0;
+  transition: box-shadow var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out);
+
+  &:hover { box-shadow: var(--shadow-md); }
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.cardTitle { font-size: var(--text-md); font-weight: var(--weight-semibold); line-height: var(--leading-tight); min-width: 0; }
+
+.meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-4);
+  margin: 0;
+  font-size: var(--text-sm);
+
+  dt { color: var(--color-text-subtle); }
+  dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+}
+
+.cardFooter {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+}
+
+@include motion-safe {
+  .cards > li { animation: rise var(--duration-base) var(--ease-out) both; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(4px); } }

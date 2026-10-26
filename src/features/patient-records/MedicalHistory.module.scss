@@ -1,0 +1,12 @@
+.condition { font-weight: var(--weight-semibold); }
+.note { margin-top: 2px; font-size: var(--text-sm); color: var(--color-text-muted); max-width: 60ch; }
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  background: var(--color-surface-sunken);
+  color: var(--color-text-muted);
+}
+.date { font-variant-numeric: tabular-nums; }
+.resolved { display: block; font-size: var(--text-xs); color: var(--color-text-subtle); }

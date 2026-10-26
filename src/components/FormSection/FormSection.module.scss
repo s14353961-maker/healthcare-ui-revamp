@@ -1,0 +1,71 @@
+@use '../../styles/mixins' as *;
+
+.section {
+  border: 0;
+  margin: 0;
+  padding: var(--space-5);
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  // leaves room for the sticky progress bar on phones/tablets when jumping to a section
+  scroll-margin-top: 6.5rem;
+  @include desktop-up { scroll-margin-top: var(--space-6); }
+
+  @include tablet-up { padding: var(--space-6); }
+}
+
+.legend {
+  float: left; // makes <legend> lay out like a normal block inside the fieldset
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+}
+
+.step {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-hover);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+.complete .step { background: var(--color-primary); color: var(--color-text-inverse); }
+
+.description {
+  clear: both;
+  padding-top: var(--space-1);
+  padding-left: calc(1.75rem + var(--space-3));
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.grid {
+  clear: both;
+  display: grid;
+  gap: var(--space-4) var(--space-5);
+  grid-template-columns: 1fr;
+  padding-top: var(--space-5);
+}
+
+@include tablet-up {
+  .cols2, .cols3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@include desktop-up {
+  .cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Helpers for children */
+.span2 { @include tablet-up { grid-column: span 2; } }
+.spanAll { grid-column: 1 / -1; }

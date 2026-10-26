@@ -1,0 +1,21 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.15em 0.65em;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  line-height: 1.6;
+  white-space: nowrap;
+  background: var(--chip-bg);
+  color: var(--chip-fg);
+}
+.dot { width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--chip-dot); flex: none; }
+
+.critical { --chip-bg: var(--status-critical-bg); --chip-fg: var(--status-critical-fg); --chip-dot: var(--status-critical-dot); }
+.active   { --chip-bg: var(--status-active-bg);   --chip-fg: var(--status-active-fg);   --chip-dot: var(--status-active-dot); }
+.chronic  { --chip-bg: var(--status-chronic-bg);  --chip-fg: var(--status-chronic-fg);  --chip-dot: var(--status-chronic-dot); }
+.resolved { --chip-bg: var(--status-resolved-bg); --chip-fg: var(--status-resolved-fg); --chip-dot: var(--status-resolved-dot); }
+.info     { --chip-bg: var(--status-info-bg);     --chip-fg: var(--status-info-fg);     --chip-dot: var(--status-info-dot); }
+.neutral  { --chip-bg: var(--status-neutral-bg);  --chip-fg: var(--status-neutral-fg);  --chip-dot: var(--status-neutral-dot); }

@@ -1,0 +1,36 @@
+@use '../../styles/mixins' as *;
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--control-height-sm);
+  padding: 0 var(--space-2);
+  margin-left: calc(var(--space-2) * -1);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+
+  &:hover { background: var(--color-primary-soft); }
+
+  svg { transition: transform var(--duration-base) var(--ease-out); }
+  &[aria-expanded='true'] svg { transform: rotate(180deg); }
+}
+
+/* Height animation without measuring: grid rows 0fr → 1fr */
+.region {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows var(--duration-base) var(--ease-out), visibility 0s linear var(--duration-base);
+}
+.open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows var(--duration-base) var(--ease-out), visibility 0s;
+}
+.inner { overflow: hidden; min-height: 0; }

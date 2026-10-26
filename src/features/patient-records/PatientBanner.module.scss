@@ -1,0 +1,88 @@
+@use '../../styles/mixins' as *;
+
+.banner {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+
+  @include desktop-up {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: var(--space-5) var(--space-6);
+  }
+}
+
+.identity { display: flex; align-items: center; gap: var(--space-4); min-width: 0; }
+
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-hover);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-lg);
+}
+
+.name {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  @include tablet-up { font-size: var(--text-2xl); }
+}
+.preferred { font-weight: var(--weight-regular); color: var(--color-text-muted); font-size: var(--text-md); margin-left: var(--space-2); }
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+
+  div { display: flex; gap: var(--space-1); }
+  dt { color: var(--color-text-subtle); }
+  dd { margin: 0; color: var(--color-text); font-weight: var(--weight-medium); }
+}
+
+.mono { font-family: var(--font-mono); font-size: 0.95em; }
+
+.allergy {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--status-critical-bg);
+  color: var(--status-critical-fg);
+  font-size: var(--text-sm);
+
+  svg { flex: none; margin-top: 1px; }
+  strong { font-weight: var(--weight-semibold); }
+}
+
+/* At-a-glance tiles */
+.glance {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+
+  @include tablet-up { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.tile {
+  dt { font-size: var(--text-xs); color: var(--color-text-subtle); text-transform: uppercase; letter-spacing: 0.04em; font-weight: var(--weight-semibold); }
+  dd { margin: var(--space-1) 0 0; font-size: var(--text-lg); font-weight: var(--weight-semibold); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+}
+.sub { font-size: var(--text-sm); font-weight: var(--weight-regular); color: var(--color-text-muted); }
+.tile dd.clinician { font-size: var(--text-md); }

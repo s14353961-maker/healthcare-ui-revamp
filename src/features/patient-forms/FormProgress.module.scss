@@ -1,0 +1,62 @@
+@use '../../styles/mixins' as *;
+
+.progress {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); }
+.label { font-size: var(--text-sm); font-weight: var(--weight-semibold); }
+.pct { font-size: var(--text-sm); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+
+.bar {
+  height: 6px;
+  margin-top: var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transition: width var(--duration-base) var(--ease-out);
+}
+
+.steps {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: none;
+  @include desktop-up { display: grid; gap: 2px; }
+}
+
+.step a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  &:hover { background: var(--color-surface-hover); color: var(--color-text); }
+}
+
+.dot {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border-strong);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  transition: all var(--duration-base) var(--ease-out);
+}
+.done .dot { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+.done a { color: var(--color-text); }

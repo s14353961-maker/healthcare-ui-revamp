@@ -1,0 +1,126 @@
+// ---------------------------------------------------------------------------
+// Design tokens
+// Every colour, size and duration used by components comes from here.
+// Components never hard-code values, so re-theming the whole app is a
+// one-file change.
+// ---------------------------------------------------------------------------
+
+:root {
+  color-scheme: light;
+
+  /* Neutrals — slightly cool so clinical screens feel calm, not sterile */
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #eef1f4;
+  --color-surface-hover: #f7f9fa;
+  --color-border: #dde3e8;
+  --color-border-strong: #b9c3cc;
+  --color-text: #17222b;
+  --color-text-muted: #4a5864;
+  --color-text-subtle: #6b7884;
+  --color-text-inverse: #ffffff;
+
+  /* Brand */
+  --color-primary: #0b6e69;
+  --color-primary-hover: #085a56;
+  --color-primary-soft: #e3f2f1;
+  --color-primary-border: #9fd0cc;
+  --color-focus: #1c64d8;
+
+  /* Clinical status — always paired with a text label, never colour alone */
+  --status-critical-fg: #a3241b;
+  --status-critical-bg: #fdecea;
+  --status-critical-dot: #d1352a;
+  --status-active-fg: #8a4b00;
+  --status-active-bg: #fff3e0;
+  --status-active-dot: #e08a00;
+  --status-chronic-fg: #5a3d9a;
+  --status-chronic-bg: #f1ecfb;
+  --status-chronic-dot: #7a5bc7;
+  --status-resolved-fg: #1d6b3a;
+  --status-resolved-bg: #e7f5ec;
+  --status-resolved-dot: #2e9a57;
+  --status-info-fg: #1c4f9c;
+  --status-info-bg: #e8f0fc;
+  --status-info-dot: #2f6fd6;
+  --status-neutral-fg: #4a5864;
+  --status-neutral-bg: #eef1f4;
+  --status-neutral-dot: #8995a0;
+
+  /* Typography */
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --text-xs: 0.75rem;   /* 12 */
+  --text-sm: 0.8125rem; /* 13 */
+  --text-md: 0.9375rem; /* 15 — base for dense clinical data */
+  --text-lg: 1.0625rem; /* 17 */
+  --text-xl: 1.25rem;   /* 20 */
+  --text-2xl: 1.5rem;   /* 24 */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing — 4px base */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Shape & depth */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgb(16 32 48 / 0.06);
+  --shadow-md: 0 2px 8px rgb(16 32 48 / 0.08), 0 1px 2px rgb(16 32 48 / 0.04);
+  --shadow-focus: 0 0 0 3px rgb(28 100 216 / 0.35);
+
+  /* Controls */
+  --control-height: 2.75rem; /* 44px — WCAG 2.5.5 touch target */
+  --control-height-sm: 2.25rem;
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Layout */
+  --content-max: 1200px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-bg: #0f151a;
+    --color-surface: #172028;
+    --color-surface-sunken: #121a21;
+    --color-surface-hover: #1c2730;
+    --color-border: #2a3742;
+    --color-border-strong: #3d4d5a;
+    --color-text: #e6edf2;
+    --color-text-muted: #aebbc6;
+    --color-text-subtle: #8796a3;
+    --color-primary: #3fb8ae;
+    --color-primary-hover: #5cc8bf;
+    --color-primary-soft: #153532;
+    --color-primary-border: #2a6d67;
+    --color-text-inverse: #06201e;
+    --color-focus: #6ea4ff;
+    --status-critical-fg: #ffb4ab; --status-critical-bg: #3b1714;
+    --status-active-fg: #ffcf8a;   --status-active-bg: #362611;
+    --status-chronic-fg: #cdb9ff;  --status-chronic-bg: #2a2142;
+    --status-resolved-fg: #9be0b2; --status-resolved-bg: #15301f;
+    --status-info-fg: #a9c7ff;     --status-info-bg: #172a47;
+    --status-neutral-fg: #c2ccd4;  --status-neutral-bg: #222d36;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 2px 10px rgb(0 0 0 / 0.45);
+  }
+}

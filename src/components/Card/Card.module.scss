@@ -1,0 +1,35 @@
+@use '../../styles/mixins' as *;
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.titleWrap { display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
+.icon { display: flex; color: var(--color-primary); }
+.title { font-size: var(--text-lg); font-weight: var(--weight-semibold); }
+.count {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  background: var(--color-surface-sunken);
+  padding: 0.1em 0.55em;
+  border-radius: var(--radius-pill);
+}
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+
+.body { padding: var(--space-4) var(--space-5); }
+.flush { padding: 0; }

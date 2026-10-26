@@ -1,0 +1,62 @@
+@use '../../styles/mixins' as *;
+
+.layout {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+
+  @include desktop-up { grid-template-columns: 260px minmax(0, 1fr); gap: var(--space-6); }
+}
+
+.aside {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: 0 calc(var(--space-4) * -1);
+  padding: var(--space-2) var(--space-4);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(6px);
+
+  @include tablet-up { margin: 0; padding: var(--space-2) 0; }
+  @include desktop-up { top: var(--space-6); padding: 0; background: none; backdrop-filter: none; }
+}
+
+.form { display: grid; gap: var(--space-5); min-width: 0; }
+
+.intro { font-size: var(--text-sm); color: var(--color-text-muted); }
+.req { color: var(--status-critical-fg); }
+
+.counter { font-variant-numeric: tabular-nums; }
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  justify-content: flex-end;
+
+  @include mobile-only { > :last-child { flex: 1; } }
+
+  /* Sticky action bar on phones — thumbs reach it without scrolling back */
+  @include mobile-only {
+    position: sticky;
+    bottom: 0;
+    margin: 0 calc(var(--space-4) * -1);
+    padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom));
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -4px 12px rgb(16 32 48 / 0.06);
+  }
+}
+
+.success {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--status-resolved-dot);
+  background: var(--status-resolved-bg);
+  color: var(--status-resolved-fg);
+  svg { flex: none; margin-top: 2px; }
+  strong { display: block; }
+}

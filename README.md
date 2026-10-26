@@ -6,8 +6,8 @@ All styling goes through **SCSS Modules and design tokens**. The components are 
 
 > ⚠️ All patient data in this repo is **synthetic**. No real PHI is used anywhere.
 
-**▶ Live demo:** `https://<your-username>.github.io/healthcare-ui-revamp/`
-**▶ Storybook:** `https://<your-username>.github.io/healthcare-ui-revamp/storybook/`
+**▶ Live demo:** `https://s14353961-maker.github.io/healthcare-ui-revamp/`
+**▶ Storybook:** `https://s14353961-maker.github.io/healthcare-ui-revamp/storybook/`
 
 | Desktop ≥ 1280 | Tablet 768–1279 | Mobile ≤ 767 |
 |---|---|---|
